@@ -1,0 +1,24 @@
+{% extends 'shopmain/index.html' %}
+{% block content %}
+<div class="container mt-5">
+<div class="row">
+{% for i in posts %}
+{% if i.cat_id == 2 %}
+  <div class="col-md-4 mb-3">
+    <div class="col-md-4">
+      <img src="{{ i.photo.url }}" class="img-fluid rounded-start">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ i.title }}</h5>
+        <p class="card-text">{{ i.context }}</p>
+        <p class="card-text">{{ i.price }}</p>
+        <a href="#" class="btn btn-dark">Buy</a>
+      </div>
+    </div>
+  </div>
+{% endif %}
+{% endfor %}
+  </div>
+</div>
+{% endblock %}

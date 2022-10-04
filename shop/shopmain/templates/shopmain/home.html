@@ -1,0 +1,90 @@
+{% extends 'shopmain/index.html' %}
+{% load static %}
+
+{% block content %}
+<div class="card text-center mt-5">
+  <div class="card-body">
+    <h5 class="card-title">About Us</h5>
+    <p class="card-text">We are the beginners in cake selling. You can taste our product one time and you never can`t forgot us. Welcome to Tasty Cake!</p>
+  </div>
+</div>
+<div class="card mb-3 mt-5" >
+{% for p in cats %}
+  <div class="row g-0">
+    <div class="col-md-4">
+      {% if p.id == 1 %}
+        <img class="img-fluid rounded-start" src="{% static 'shopmain/img/Биг_Мак.jpg' %}">
+        {% elif p.id == 2 %}
+        <img class="img-fluid rounded-start" src="{% static 'shopmain/img/panini-hurman-photo-productimage.png' %}">
+        {% elif p.id == 3 %}
+        <img class="img-fluid rounded-start" src="{% static 'shopmain/img/baheta-hurman-photo-productimage.png' %}">
+        {% elif p.id == 4 %}
+        <img class="img-fluid rounded-start" src="{% static 'shopmain/img/греческий.jpg' %}">
+        {% endif %}
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h2 class="card-title">{{ p.title }}</h2>
+        <p class="card-text ">{{ p.context }}</p>
+        {% if p.id == 1 %}
+        <a href="{% url 'burgers' %}" class="btn btn-dark">Show products</a>
+        {% elif p.id == 2 %}
+        <a href="{% url 'panini' %}" class="btn btn-dark">Show products</a>
+        {% elif p.id == 3 %}
+        <a href="{% url 'bageta' %}" class="btn btn-dark">Show products</a>
+        {% elif p.id == 4 %}
+        <a href="{% url 'salad' %}" class="btn btn-dark">Show products</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+{% endfor %}
+  </div>
+
+<!--<div class="row p-5 ">
+  {% for p in cats %}
+  <div class="p-2">
+    <div class="card">
+      <div class="col-md-4">
+        {% if p.id == 1 %}
+        <img class="img-fluid rounded-start" src="{% static 'shopmain/img/Биг_Мак.jpg' %}">
+        {% elif p.id == 2 %}
+        <img class="img-fluid rounded-start" src="{% static 'shopmain/img/panini-hurman-photo-productimage.png' %}">
+        {% elif p.id == 3 %}
+        <img class="img-fluid rounded-start" src="{% static 'shopmain/img/baheta-hurman-photo-productimage.png' %}">
+        {% elif p.id == 4 %}
+        <img class="img-fluid rounded-start" src="{% static 'shopmain/img/греческий.jpg' %}">
+        {% endif %}
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h2 class="card-title">{{ p.title }}</h2>
+          <p class="card-text ">{{ p.context }}</p>
+          <a href="#" class="btn btn-dark">Go somewhere</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}-->
+ <!-- <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+
+</div>-->
+{% endblock %}
